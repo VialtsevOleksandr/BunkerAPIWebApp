@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  bunkerapiwebapp:
+    image: ${DOCKER_REGISTRY-}bunkerapiwebapp
+    build:
+      context: .
+      dockerfile: BunkerAPIWebApp/Dockerfile
