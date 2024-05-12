@@ -25,10 +25,10 @@ public class Bunker
     //public virtual ICollection<ResidenceTime> ResidenceTimes { get; set; } = new List<ResidenceTime>();
     //public virtual ICollection<FoodQuantity> FoodQuantities { get; set; } = new List<FoodQuantity>();
     //public virtual ICollection<BunkerInventory> BunkerInventories { get; set; } = new List<BunkerInventory>();
-    public virtual BunkerSize BunkerSize { get; set; }
-    public virtual ResidenceTime ResidenceTime { get; set; }
-    public virtual FoodQuantity FoodQuantity { get; set; }
-    public virtual BunkerInventory BunkerInventory { get; set; }
+    public virtual BunkerSize? BunkerSize { get; set; }
+    public virtual ResidenceTime? ResidenceTime { get; set; }
+    public virtual FoodQuantity? FoodQuantity { get; set; }
+    public virtual BunkerInventory? BunkerInventory { get; set; }
     
     //public virtual GameSetting GameSetting { get; set; }
 }

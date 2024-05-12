@@ -16,6 +16,6 @@ public class Gender
     [Required(ErrorMessage = "Поле не повинно бути порожнім")]
     [Display(Name = "Чи може мати дитину")]
     public bool IsChildfree { get; set; }
-    public virtual GenderType GenderType { get; set; }
+    public virtual GenderType? GenderType { get; set; }
     //public virtual HumanCard HumanCard { get; set; }
 }

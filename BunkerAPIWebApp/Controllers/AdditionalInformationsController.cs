@@ -35,7 +35,7 @@ namespace BunkerAPIWebApp.Controllers
 
             if (additionalInformation == null)
             {
-                return NotFound();
+                return NotFound(new { status = StatusCodes.Status404NotFound, message = "Не знайдено додаткової інформації з таким ID." });
             }
 
             return additionalInformation;
@@ -48,7 +48,12 @@ namespace BunkerAPIWebApp.Controllers
         {
             if (id != additionalInformation.Id)
             {
-                return BadRequest();
+                return BadRequest(new { status = StatusCodes.Status400BadRequest, message = "Невірний запит: ID не відповідає ID додаткової інформації." });
+            }
+
+            if (additionalInformation == null || string.IsNullOrEmpty(additionalInformation.AdditionalInformationName))
+            {
+                return BadRequest(new { status = StatusCodes.Status400BadRequest, message = "Невірний запит: Додаткова інформація або її властивості не можуть бути пустими." });
             }
 
             _context.Entry(additionalInformation).State = EntityState.Modified;
@@ -61,7 +66,7 @@ namespace BunkerAPIWebApp.Controllers
             {
                 if (!AdditionalInformationExists(id))
                 {
-                    return NotFound();
+                    return NotFound(new { status = StatusCodes.Status404NotFound, message = "Не знайдено додаткової інформації з таким ID." });
                 }
                 else
                 {
@@ -72,11 +77,17 @@ namespace BunkerAPIWebApp.Controllers
             return NoContent();
         }
 
+
         // POST: api/AdditionalInformations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<AdditionalInformation>> PostAdditionalInformation(AdditionalInformation additionalInformation)
         {
+            if (additionalInformation == null || string.IsNullOrEmpty(additionalInformation.AdditionalInformationName))
+            {
+                return BadRequest(new { status = StatusCodes.Status400BadRequest, message = "Невірний запит: Додаткова інформація або її властивості не можуть бути пустими." });
+            }
+
             _context.AdditionalInformations.Add(additionalInformation);
             await _context.SaveChangesAsync();
 
@@ -90,7 +101,7 @@ namespace BunkerAPIWebApp.Controllers
             var additionalInformation = await _context.AdditionalInformations.FindAsync(id);
             if (additionalInformation == null)
             {
-                return NotFound();
+                return NotFound(new { status = StatusCodes.Status404NotFound, message = "Не знайдено додаткової інформації з таким ID для видалення." });
             }
 
             _context.AdditionalInformations.Remove(additionalInformation);
