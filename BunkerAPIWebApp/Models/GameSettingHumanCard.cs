@@ -12,6 +12,6 @@ public class GameSettingHumanCard
     [Required(ErrorMessage = "Поле не повинно бути порожнім")]
     [Display(Name = "ID картки людини")]
     public int HumanCardId { get; set; }
-    public virtual GameSetting? GameSetting { get; set; }
-    public virtual HumanCard? HumanCard { get; set; }
+    //public virtual GameSetting? GameSetting { get; set; }
+    //public virtual HumanCard? HumanCard { get; set; }
 }

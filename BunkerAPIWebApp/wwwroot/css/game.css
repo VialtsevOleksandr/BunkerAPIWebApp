@@ -1,0 +1,72 @@
+﻿body {
+    font-family: Arial, sans-serif; /* Змінюємо шрифт на Arial */
+    background-color: #f4f4f4; /* Додаємо світлий фон для сторінки */
+    padding: 10px; /* Додаємо відступи від країв екрану */
+}
+
+h2 {
+    color: #333; /* Змінюємо колір заголовків на темно-сірий */
+    text-transform: uppercase; /* Робимо всі заголовки великими літерами */
+    text-align: center; /* Центруємо заголовки */
+}
+
+p {
+    color: #666; /* Змінюємо колір тексту на світло-сірий */
+    line-height: 1.6; /* Збільшуємо відстань між рядками для кращої читабельності */
+}
+
+.info-box {
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid transparent; /* Додаємо обводку */
+    display: inline-block; /* Блоки займатимуть лише стільки місця, скільки потрібно для вмісту */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Додаємо тінь до блоків для кращого вигляду */
+}
+
+.catastrophe-info {
+    background-color: #b8e6ff; /* Блякло синій колір для катастрофи */
+    border-color: #3b5998; /* Насичений синій колір для обводки */
+    float: left; /* Розташуємо блок справа */
+    margin-right: 10px; /* Додаємо відступ справа */
+}
+
+.bunker-info {
+    background-color: #ffffb8; /* Блякло жовтий колір для бункера */
+    border-color: #ffd700; /* Насичений жовтий колір для обводки */
+    float: right; /* Розташуємо блок зліва */
+    margin-left: 10px; /* Додаємо відступ зліва */
+}
+
+.info-box-wrapper {
+    overflow: auto; /* Забезпечує, що обгортка розуміє розміри своїх плаваючих дітей */
+}
+
+.player-card {
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #404040; /* Додаємо темно-синю обводку */
+    background-color: #e3e3e3; /* Блякло-зелений колір для фону */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Додаємо тінь до блоків для кращого вигляду */
+    width: 400px; /* Стала ширина карти */
+    word-wrap: break-word; /* Переносимо текст на новий рядок, якщо він не поміщається */
+    margin-right: 10px; /* Додаємо відступ справа */
+}
+
+    .player-card:last-child {
+        margin-right: 0; /* Видаляємо відступ справа для останньої карти */
+    }
+
+.player-cards-wrapper {
+    display: flex; /* Використовуємо flexbox для вирівнювання карт */
+    flex-wrap: wrap; /* Дозволяємо картам переноситися на новий рядок */
+    justify-content: center; /* Вирівнюємо карти по центру */
+}
+
+#page-title {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-top: 20px;
+}

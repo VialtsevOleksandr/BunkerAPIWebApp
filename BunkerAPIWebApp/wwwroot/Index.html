@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Початок гри</title>
+    <link rel="stylesheet" type="text/css" href="css/site.css">
+</head>
+<body>
+    <div class="game-setup">
+        <h1>Початок гри</h1>
+        <div class="input-group">
+            <div>
+                <label for="playerCount">Кількість гравців:</label>
+                <input type="number" id="playerCount" name="playerCount" min="2" max="20">
+            </div>
+            <div>
+                <label for="playWithFriends">Грати з друзями:</label>
+                <input type="checkbox" id="playWithFriends" name="playWithFriends">
+            </div>
+        </div>
+        <button id="startGame">Створити гру</button>
+    </div>
+    <div id="error" class="hidden"></div>
+    <div id="loading" class="hidden">
+        <p class="loading-text">Завантаження гри<span>.</span><span>.</span><span>.</span></p>
+    </div>
+    <script src="js/site.js"></script>
+</body>
+</html>

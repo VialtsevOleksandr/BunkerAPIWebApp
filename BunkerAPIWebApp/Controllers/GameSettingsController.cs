@@ -31,7 +31,9 @@ namespace BunkerAPIWebApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<GameSetting>> GetGameSetting(int id)
         {
-            var gameSetting = await _context.GameSettings.FindAsync(id);
+            var gameSetting = await _context.GameSettings
+              .Include(gs => gs.GameSettingHumanCards)
+              .SingleOrDefaultAsync(gs => gs.Id == id);
 
             if (gameSetting == null)
             {
@@ -60,7 +62,7 @@ namespace BunkerAPIWebApp.Controllers
                 return BadRequest(new { status = StatusCodes.Status400BadRequest, message = "Невірний запит: Налаштування гри не може бути пустими." });
             }
 
-            if (playerCount < 2 || playerCount > 20)
+            if (playerCount <= 2 || playerCount > 20)
             {
                 return BadRequest(new { status = StatusCodes.Status400BadRequest, message = "Невірний запит: Кількість гравців повинна бути від 2 до 20." });
             }
